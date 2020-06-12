@@ -1,0 +1,119 @@
+﻿@model IEnumerable<DemoProjectSem2.Models.TblPackage>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PackageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackageDetail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackageImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackageNoOfDays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackageNoOfNights)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackageTotalCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackageStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDelete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackageCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackageGuide)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PackageHotel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageDetail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageNoOfDays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageNoOfNights)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageTotalCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDelete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageCity.CityId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageGuide.GuideId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageHotel.HotelId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PackageId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PackageId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PackageId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

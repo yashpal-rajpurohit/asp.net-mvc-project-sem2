@@ -1,0 +1,83 @@
+﻿@model DemoProjectSem2.Models.TblGuide
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Guide Details</h1>
+
+<h4>=</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="GuideId" />
+            <div class="form-group">
+                <label asp-for="GuideName" class="control-label"> Guide Name</label>
+                <input asp-for="GuideName" class="form-control" />
+                <span asp-validation-for="GuideName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GuideGender" class="control-label">Guide Gender</label>
+                @*  <input asp-for="GuideGender" class="form-control" />*@
+                <br />
+                Male: @Html.RadioButton("Gender", "Male", true)<br />
+                Female: @Html.RadioButton("Gender", "Female")
+                <span asp-validation-for="GuideGender" manifest class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GuideCityId" class="control-label">Guide City</label>
+                <select asp-for="GuideCityId" class="form-control" asp-items="ViewBag.GuideCityId"></select>
+
+                <span asp-validation-for="GuideCityId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GuideContact" class="control-label">Guide Contact Number:</label>
+                <input asp-for="GuideContact" class="form-control" />
+                <span asp-validation-for="GuideContact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GuideFees" class="control-label">Guide Fees</label>
+                <input asp-for="GuideFees" class="form-control" />
+                <span asp-validation-for="GuideFees" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="GuideStatus" class="control-label"></label>
+                <input asp-for="GuideStatus" class="form-control" />
+                <span asp-validation-for="GuideStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateDate" class="control-label"></label>
+                <input asp-for="CreateDate" class="form-control" />
+                <span asp-validation-for="CreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdateDate" class="control-label"></label>
+                <input asp-for="UpdateDate" class="form-control" />
+                <span asp-validation-for="UpdateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsActive" class="control-label"></label>
+                <input asp-for="IsActive" class="form-control" />
+                <span asp-validation-for="IsActive" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsDelete" class="control-label"></label>
+                <input asp-for="IsDelete" class="form-control" />
+                <span asp-validation-for="IsDelete" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

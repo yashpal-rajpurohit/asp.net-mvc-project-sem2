@@ -1,0 +1,104 @@
+﻿@model DemoProjectSem2.Models.TblPackage
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TblPackage</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PackageId" />
+            <div class="form-group">
+                <label asp-for="PackageName" class="control-label"></label>
+                <input asp-for="PackageName" class="form-control" />
+                <span asp-validation-for="PackageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PackageDetail" class="control-label"></label>
+                <input asp-for="PackageDetail" class="form-control" />
+                <span asp-validation-for="PackageDetail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PackageImage" class="control-label"></label>
+                <input asp-for="PackageImage" class="form-control" />
+                <span asp-validation-for="PackageImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PackageNoOfDays" class="control-label"></label>
+                <input asp-for="PackageNoOfDays" class="form-control" />
+                <span asp-validation-for="PackageNoOfDays" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PackageNoOfNights" class="control-label"></label>
+                <input asp-for="PackageNoOfNights" class="form-control" />
+                <span asp-validation-for="PackageNoOfNights" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PackageHotelId" class="control-label"></label>
+                <select asp-for="PackageHotelId" class="form-control" asp-items="ViewBag.PackageHotelId"></select>
+                <span asp-validation-for="PackageHotelId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PackageGuideId" class="control-label"></label>
+                <select asp-for="PackageGuideId" class="form-control" asp-items="ViewBag.PackageGuideId"></select>
+                <span asp-validation-for="PackageGuideId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PackageCityId" class="control-label"></label>
+                <select asp-for="PackageCityId" class="form-control" asp-items="ViewBag.PackageCityId"></select>
+                <span asp-validation-for="PackageCityId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PackageTotalCost" class="control-label"></label>
+                <input asp-for="PackageTotalCost" class="form-control" />
+                <span asp-validation-for="PackageTotalCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PackageStatus" class="control-label"></label>
+                <input asp-for="PackageStatus" class="form-control" />
+                <span asp-validation-for="PackageStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateDate" class="control-label"></label>
+                <input asp-for="CreateDate" class="form-control" />
+                <span asp-validation-for="CreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdateDate" class="control-label"></label>
+                <input asp-for="UpdateDate" class="form-control" />
+                <span asp-validation-for="UpdateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsActive" class="control-label"></label>
+                <input asp-for="IsActive" class="form-control" />
+                <span asp-validation-for="IsActive" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsDelete" class="control-label"></label>
+                <input asp-for="IsDelete" class="form-control" />
+                <span asp-validation-for="IsDelete" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

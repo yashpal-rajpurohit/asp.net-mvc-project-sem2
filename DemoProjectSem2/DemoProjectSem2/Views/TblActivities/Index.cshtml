@@ -1,0 +1,85 @@
+﻿@model IEnumerable<DemoProjectSem2.Models.TblActivity>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All Activities</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ActivityName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActivityTiming)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActivityCost)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDelete)
+            </th>*@
+        <th>
+            @Html.Label("Activity Type")
+        </th>
+            <th></th>
+        </tr>
+    </thead>
+  
+    <tbody>
+  @{
+      int i = 0;
+
+  }    
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActivityName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActivityTiming)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActivityCost)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdateDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsDelete)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.ActivityTypeNavigation.ActivityTypeName)
+
+            </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ActivityId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ActivityId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ActivityId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

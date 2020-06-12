@@ -1,0 +1,80 @@
+﻿@model DemoProjectSem2.Models.TblGuide
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add Guide</h1>
+
+<h4></h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="GuideName" class="control-label">Guide Name</label>
+                <input asp-for="GuideName" class="form-control" />
+                <span asp-validation-for="GuideName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GuideGender" class="control-label">Guide Gender</label><br />
+               Male: @Html.RadioButton("GuideGender", "Male",true)<br />
+                Female: @Html.RadioButton("GuideGender", "Female")  
+                <span asp-validation-for="GuideGender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GuideCityId" class="control-label">Guide City</label>
+                @Html.DropDownList("GuideCityId", null, new { @class = "form-control" })
+                <span asp-validation-for="GuideCityId" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="GuideContact" class="control-label">Guide Contact Number(Numbers Only)</label>
+                <input asp-for="GuideContact" class="form-control" />
+                <span asp-validation-for="GuideContact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GuideFees" class="control-label">Guide Fees(in ₹) </label>
+                <input asp-for="GuideFees" class="form-control" />
+                <span asp-validation-for="GuideFees" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="GuideStatus" class="control-label"></label>
+                <input asp-for="GuideStatus" class="form-control" />
+                <span asp-validation-for="GuideStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateDate" class="control-label"></label>
+                <input asp-for="CreateDate" class="form-control" />
+                <span asp-validation-for="CreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdateDate" class="control-label"></label>
+                <input asp-for="UpdateDate" class="form-control" />
+                <span asp-validation-for="UpdateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsActive" class="control-label"></label>
+                <input asp-for="IsActive" class="form-control" />
+                <span asp-validation-for="IsActive" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsDelete" class="control-label"></label>
+                <input asp-for="IsDelete" class="form-control" />
+                <span asp-validation-for="IsDelete" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,109 @@
+﻿@model IEnumerable<DemoProjectSem2.Models.TblUser>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserFname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserLname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserDob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserMobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserEmail)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDelete)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.UserCity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserFname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserLname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserDob)
+            </td>
+            <td>
+                @if (item.UserGender == "1")
+                {
+                    Html.Label("Male");
+                }
+                else
+                {
+                    Html.Label("Female");
+
+                }
+                  </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserMobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserEmail)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDelete)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.UserCity.CityName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UserId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UserId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.UserId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
